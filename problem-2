@@ -1,0 +1,33 @@
+2) Remove duplicates from a given array: Given a sorted integer array arr, write a program in C to return the array after removing the duplicates, with all the other elements in place.
+
+import java.util.*;
+public class removeDuplicates{
+    public static int[] removeDuplicates(int[] arr) {
+        int n = arr.length;
+        int[] temp = new int[n];
+        int uniqueCount = 0;
+        for (int i = 0; i < n; i++) {
+            boolean isDuplicate = false;
+            for (int j = 0; j < uniqueCount; j++) {
+                if (arr[i] == temp[j]) {
+                    isDuplicate = true;
+                    break;
+                }
+            }
+            if (!isDuplicate) {
+                temp[uniqueCount++] = arr[i];
+            }
+        }
+        int[] result = new int[uniqueCount];
+        for (int i = 0; i < uniqueCount; i++) {
+            result[i] = temp[i];
+        }
+        return result;
+    }
+    public static void main(String[] args) {
+int[] array = {2,2,3,3,4,5,5};
+        System.out.println("Original array: " + Arrays.toString(array));
+        int[] uniqueArray = removeDuplicates(array);
+        System.out.println("After removing duplicates: " + Arrays.toString(uniqueArray));
+    }
+}
