@@ -1,0 +1,24 @@
+Chocolate factory is packing chocolates into the packets.The chocolate packets here represent an array of N number of interger values.The task is to find the empty
+packets(0) of chocolate and push it to the end of the conveyor belt(array).
+
+import java.util.*;
+public class Main {
+    public static void main(int[] arr) {
+        int n = arr.length;
+        int M = 0;
+        for (int i=0;i<n;i++) {
+            if (arr[i]!=0) {
+                arr[M++] = arr[i];
+            }
+        }
+        while (M<n) {
+            arr[M++] = 0;
+        }
+    }
+    public static void main(String[] args) {
+        int[] packets = {2,0,3,0,4,5};
+        System.out.println("Before packing: " + Arrays.toString(packets));
+        main(packets);
+        System.out.println("After packing:  " + Arrays.toString(packets));
+    }
+}
